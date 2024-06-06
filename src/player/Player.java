@@ -10,6 +10,19 @@ public class Player {
     private double mana;
     private double damage;
 
+    public Player(Long id, String username, double level, String gen, double health, double mana, double damage) {
+        this.id = id;
+        this.username = username;
+        this.level = level;
+        this.gen = gen;
+        this.health = health;
+        this.mana = mana;
+        this.damage = damage;
+    }
+
+    public Player() {
+    }
+
     public Long getId() {
         return id;
     }

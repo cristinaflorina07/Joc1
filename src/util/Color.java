@@ -1,4 +1,4 @@
-package bootstrap;
+package util;
 
 public enum Color {
     RESET("\u001B[0m"),
@@ -17,7 +17,8 @@ public enum Color {
         this.code = code;
     }
 
-    public String getCode() {
+    @Override
+    public String toString() {
         return code;
     }
 }
