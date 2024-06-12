@@ -1,5 +1,6 @@
 package bootstrap;
 
+import design.DesignPlayer;
 import player.Player;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class StarterSetup {
     double mana = 100;
     List<Player> playerList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+    DesignPlayer designPlayer = new DesignPlayer();
 
     public Player generatePlayer() {
         Player player1 = new Player();
@@ -83,6 +85,8 @@ public class StarterSetup {
                 showAllPlayers(playerList);
                 break;
             case 3:
+                designPlayer.listPlayer(playerList);
+                break;
 
             default:
                 System.out.println("Chose Options");
