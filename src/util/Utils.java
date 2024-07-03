@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static bootstrap.SetupGame.gamePanel;
 import static design.DesignPlayer.showInfoPlayer;
 
 
@@ -16,9 +17,9 @@ public class Utils {
 
     static DesignPlayer designPlayer = new DesignPlayer();
 
-    public static void listAllPlayers(List<Player> players) {
+    public void listAllPlayers(List<Player> players) {
         showInfoPlayer(players);
-        generator.panelGame();
+        gamePanel();
     }
 
     public static Long generateId(long min, long max) {

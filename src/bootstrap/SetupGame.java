@@ -2,6 +2,7 @@ package bootstrap;
 
 import design.DesignPlayer;
 import player.Player;
+import util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,17 +10,16 @@ import java.util.Scanner;
 
 import static bootstrap.MockDate.*;
 import static util.Utils.generateId;
-import static util.Utils.listAllPlayers;
 
 public class SetupGame {
 
-    List<Player> playerList = new ArrayList<>();
-   public static Scanner scanner = new Scanner(System.in);
-    DesignPlayer designPlayer = new DesignPlayer();
+    static List<Player> playerList = new ArrayList<>();
+    public static Scanner scanner = new Scanner(System.in);
+    static DesignPlayer designPlayer = new DesignPlayer();
 
+    static Utils utils = new Utils();
 
-
-    public void addPlayer() {
+    public static void addPlayer() {
         String choice = "";
 
         do {
@@ -44,13 +44,12 @@ public class SetupGame {
 
         } while (choice.equalsIgnoreCase("y"));
         if (choice.equalsIgnoreCase("n")) {
-            panelGame();
+            gamePanel();
         }
-
     }
 
 
-    public void panelGame() {
+    public static void gamePanel() {
         System.out.println("1. Add Players");
         System.out.println("2. Show all players: ");
         System.out.println("3. PvP");
@@ -61,8 +60,8 @@ public class SetupGame {
         int chose = scanner.nextInt();
         switch (chose) {
             case 1 -> addPlayer();
-            case 2 -> listAllPlayers(playerList);
-            case 3 -> designPlayer.listPlayer(playerList);
+            case 2 -> utils.listAllPlayers(playerList);
+            case 3 -> designPlayer.battle1V1(playerList);
             default -> System.out.println("Chose Options");
         }
 

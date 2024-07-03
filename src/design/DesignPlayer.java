@@ -1,13 +1,12 @@
 package design;
 
-import bootstrap.SetupGame;
 import player.Player;
 import util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
+import static bootstrap.SetupGame.gamePanel;
 import static bootstrap.SetupGame.scanner;
 import static util.Color.*;
 
@@ -20,12 +19,11 @@ public class DesignPlayer {
             System.out.print("Health: " + "[" + RED + player.getHealth() + RESET + "]" + RESET + " ");
             System.out.print("Mana: " + "[" + RED + player.getMana() + RESET + "]" + RESET + " ");
 
-            System.out.print("Level: " + "[" + BLUE + player.getLevel() + RESET + "]" + RESET);
+            System.out.print("Level: " + "[" + BLUE + player.getLevel() + RESET + "]" + RESET + "\n");
         }
     }
 
-    public List<Player> listPlayer(List<Player> playersList) {
-        SetupGame setupGame = new SetupGame();
+    public void battle1V1(List<Player> playersList) {
         List<Player> emptyPlayers = new ArrayList<>();
         int index = 0;
         for (Player player : playersList) {
@@ -39,10 +37,6 @@ public class DesignPlayer {
 
 
         utils.getTwoItemsFromList(emptyPlayers, selector1, selector2);
-//        showInfoPlayer(emptyPlayers);
-        setupGame.panelGame();
-        return emptyPlayers;
+        gamePanel();
     }
-
-
 }

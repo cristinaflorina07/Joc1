@@ -1,13 +1,12 @@
 import bootstrap.SetupGame;
-import design.DesignPlayer;
 
-import java.util.Scanner;
+import static bootstrap.SetupGame.gamePanel;
 
 public class Start {
     public static void main(String... args) {
         SetupGame generator = new SetupGame();
-        DesignPlayer designPlayer = new DesignPlayer();
-        generator.panelGame();
+
+        gamePanel();
 
 
         // List<Player> playerList = new ArrayList<>(List.of(
