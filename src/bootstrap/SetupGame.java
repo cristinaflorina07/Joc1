@@ -7,38 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static bootstrap.MockDate.*;
 import static util.Utils.generateId;
-import static util.Utils.showAllPlayers;
+import static util.Utils.listAllPlayers;
 
-public class StarterSetup {
+public class SetupGame {
 
-    long min = 10000000000L;
-    long max = 99999999999L;
-    double level = 1;
-    double damage = 10;
-    double health = 100;
-    double mana = 100;
     List<Player> playerList = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
+   public static Scanner scanner = new Scanner(System.in);
     DesignPlayer designPlayer = new DesignPlayer();
 
-    public Player generatePlayer() {
-        Player player1 = new Player();
-        player1.setUsername("Cristina");
-        player1.setGen("Female");
-        player1.setId(1L);
-        player1.setLevel(1);
-        player1.setDamage(10);
-        player1.setHealth(100);
-        player1.setMana(100);
 
-        System.out.println(player1);
-        return player1;
-    }
 
-    public void manualPlayer() {
+    public void addPlayer() {
         String choice = "";
-
 
         do {
             Player player = new Player();
@@ -62,13 +44,13 @@ public class StarterSetup {
 
         } while (choice.equalsIgnoreCase("y"));
         if (choice.equalsIgnoreCase("n")) {
-            menu();
+            panelGame();
         }
 
     }
 
 
-    public void menu() {
+    public void panelGame() {
         System.out.println("1. Add Players");
         System.out.println("2. Show all players: ");
         System.out.println("3. PvP");
@@ -78,20 +60,10 @@ public class StarterSetup {
         Scanner scanner = new Scanner(System.in);
         int chose = scanner.nextInt();
         switch (chose) {
-            case 1:
-                manualPlayer();
-                break;
-            case 2:
-                showAllPlayers(playerList);
-                break;
-            case 3:
-                designPlayer.listPlayer(playerList);
-                break;
-
-            default:
-                System.out.println("Chose Options");
-
-
+            case 1 -> addPlayer();
+            case 2 -> listAllPlayers(playerList);
+            case 3 -> designPlayer.listPlayer(playerList);
+            default -> System.out.println("Chose Options");
         }
 
     }

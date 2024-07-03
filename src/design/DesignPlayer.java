@@ -1,18 +1,19 @@
 package design;
 
 import player.Player;
+import util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static bootstrap.SetupGame.scanner;
 import static util.Color.*;
 
 public class DesignPlayer {
+    Utils utils = new Utils();
 
-    Scanner scanner = new Scanner(System.in);
-
-    public void designPvP(List<Player> playerList) {
+    public void showInfoPlayer(List<Player> playerList) {
         for (Player player : playerList) {
             System.out.print("\tUsername: " + "[" + RED + player.getUsername() + RESET + "]" + RESET + " ");
             System.out.print("Health: " + "[" + RED + player.getHealth() + RESET + "]" + RESET + " ");
@@ -36,16 +37,11 @@ public class DesignPlayer {
         int selector2 = scanner.nextInt();
 
 
-        getTwoItemsFromList(emptyPlayers, selector1,selector2);
-        designPvP(emptyPlayers);
+        utils.getTwoItemsFromList(emptyPlayers, selector1, selector2);
+        showInfoPlayer(emptyPlayers);
 
         return emptyPlayers;
     }
 
-    public List<Player> getTwoItemsFromList(List<Player> list, int index1, int index2) {
-        List<Player> emptyListPvP = new ArrayList<>();
-        emptyListPvP.add(list.get(index1));
-        emptyListPvP.add(list.get(index2));
-        return emptyListPvP;
-    }
+
 }
