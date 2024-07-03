@@ -1,5 +1,6 @@
 package design;
 
+import bootstrap.SetupGame;
 import player.Player;
 import util.Utils;
 
@@ -13,7 +14,7 @@ import static util.Color.*;
 public class DesignPlayer {
     Utils utils = new Utils();
 
-    public void showInfoPlayer(List<Player> playerList) {
+    public static void showInfoPlayer(List<Player> playerList) {
         for (Player player : playerList) {
             System.out.print("\tUsername: " + "[" + RED + player.getUsername() + RESET + "]" + RESET + " ");
             System.out.print("Health: " + "[" + RED + player.getHealth() + RESET + "]" + RESET + " ");
@@ -24,7 +25,7 @@ public class DesignPlayer {
     }
 
     public List<Player> listPlayer(List<Player> playersList) {
-
+        SetupGame setupGame = new SetupGame();
         List<Player> emptyPlayers = new ArrayList<>();
         int index = 0;
         for (Player player : playersList) {
@@ -38,8 +39,8 @@ public class DesignPlayer {
 
 
         utils.getTwoItemsFromList(emptyPlayers, selector1, selector2);
-        showInfoPlayer(emptyPlayers);
-
+//        showInfoPlayer(emptyPlayers);
+        setupGame.panelGame();
         return emptyPlayers;
     }
 

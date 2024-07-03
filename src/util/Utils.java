@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static design.DesignPlayer.showInfoPlayer;
+
 
 public class Utils {
     static SetupGame generator = new SetupGame();
@@ -15,7 +17,7 @@ public class Utils {
     static DesignPlayer designPlayer = new DesignPlayer();
 
     public static void listAllPlayers(List<Player> players) {
-        designPlayer.showInfoPlayer(players);
+        showInfoPlayer(players);
         generator.panelGame();
     }
 
@@ -32,6 +34,7 @@ public class Utils {
         List<Player> emptyListPvP = new ArrayList<>();
         emptyListPvP.add(list.get(index1));
         emptyListPvP.add(list.get(index2));
+        showInfoPlayer(emptyListPvP);
         return emptyListPvP;
     }
 }
