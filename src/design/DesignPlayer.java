@@ -35,7 +35,6 @@ public class DesignPlayer {
         int selector1 = scanner.nextInt();
         int selector2 = scanner.nextInt();
 
-
         utils.getTwoItemsFromList(emptyPlayers, selector1, selector2);
         gamePanel();
     }
